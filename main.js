@@ -1,8 +1,9 @@
-console.log(window);
-let edad = prompt("Cual es tu Edad?");
+let anioAct = prompt("Por favor ingrsar Año Actual");
+let anioNac = prompt("Por favor ingresar tu año de nacimiento");
 
-if(edad > 18){
-	alert("Entras")
-}else{
-	alert("No Entras")
+function anios () {
+    console.log(anioAct);
+    console.log(anioNac);
 }
+
+anios();
