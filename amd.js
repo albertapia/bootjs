@@ -15,5 +15,6 @@ function errorDate (mes, dia) {
 }
 
 errorDate();
+document.write(AMD);
 console.log(AMD);
 
