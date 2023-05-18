@@ -1,8 +1,8 @@
-let name = "Bart Simpsons"
-let edad = 13
+console.log(window);
+let edad = prompt("Cual es tu Edad?");
 
-const COLOR_PERSONAJE = "#FFFF00"
-
-let resultado = "Nombre: " + name + "Edad" + edad + COLOR_PERSONAJE
-
-alert(resultado);
+if(edad > 18){
+	alert("Entras")
+}else{
+	alert("No Entras")
+}
