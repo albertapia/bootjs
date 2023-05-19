@@ -2,7 +2,7 @@ let anio = prompt ("Ingrese el año (formato AAAA): ");
 let mes = prompt("Ingrese el mes (formato MM): ");
 let dia = prompt("Ingrese el dia (formato DD): ");
 
-let AMD = anio + "/" + mes + "/" + dia; //AMD acronimo Año Mes Dia
+let AMD = anio + mes + dia; //AMD acronimo Año Mes Dia
 
 function errorDate (mes, dia) {
     if (mes == 0 || mes > 12) {
