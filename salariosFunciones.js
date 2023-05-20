@@ -2,6 +2,8 @@ const numIntegrantes = prompt("Cuantos integrantes tiene tu familia?");
 
 const salarios = [];
 
+document.getElementById("#numTrabajadores");
+
 for (let i = 0; i < numTrabajadores; i++) {
   const salario = prompt(`Ingrese el salario del trabajador ${i + 1}:`);
   salarios.push(salario);
