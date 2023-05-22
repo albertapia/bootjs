@@ -1,7 +1,5 @@
-//let numeroIntegrantes = prompt("Cuantos Integrantes tiene tu Familia?");
-
+let numeroIntegrantes = prompt("Cuantos Integrantes tiene tu Familia?");
 let cantidadTrabajando = document.querySelector('#integrantesTrabajando');
-
 let $ejecutaCargarTrabajadores = document.querySelector("#cargarIntegrantes");
 
 $ejecutaCargarTrabajadores.onclick = obtieneIntegrantes;
@@ -13,7 +11,6 @@ function obtieneIntegrantes() {
   const createButton= document.createElement('button')
   createButton.innerText= 'Cargar Salarios';
   document.body.appendChild(createButton);
-  
 }
 
 function creaInputSalarios(i) {
@@ -26,5 +23,4 @@ function creaInputSalarios(i) {
   $numeroDeIntegrante.textContent = `Ingresar Salario Integrante Trabajador ${i+1}`;
   cajaDiv.appendChild($inputSalario);
   cajaDiv.appendChild($saltoDeLinea);
-
 }
