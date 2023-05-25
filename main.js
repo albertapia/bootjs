@@ -1,30 +1,35 @@
-const hsPorDia = 8; // Asumiendo que 8 hs es lo normal
-const diasPorSemana = 6; // Asumiendo 1 Franco Semanal
-const meses = 12; // Meses del año
+//let Integrantes = prompt("Nuemro de Integrantes de la Familia")
 
+function pedirSalarios() {
+    const numeroDeTrabajadores = document.getElementById("numeroTrabajadores").value;
+    let salarios = [];
+    let salarioMaximo = 0;
+    let salarioMinimo = 0;
+    let salariototal = 0;
+  
+    for (let i = 1; +i <= numeroDeTrabajadores; i++) {
+      const salario = prompt(`Ingrese el salario del trabajador ${i}:`);
+      salarios.push(parseFloat(salario));
 
-//let salarioAnual = prompt("Ingrese su Salario Anual")
+      if (salarioMaximo < salarios.salario){
+        salarioMaximo = salarios.salario;
+      }
 
-const salarioAnual = prompt("Ingrese su salario anual: ");
-console.log("Salario Anual: " + salarioAnual);
+      if (salarioMinimo > salarios.salario){
+      salarioMinimo = salarios.salario;
+      }
 
-function salarioMensual (salarioAnual) {
-    let salarioMensual = salarioAnual / meses;
-    console.log("Salario Mensual: " + salarioMensual) ;
+    }
+
+    let salariopromedio = salariototal / numeroDeTrabajadores;
+
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = `
+      Maximo salario: ${salarioMaximo}<br>
+      Minimo salario: ${salarioMinimo}<br>
+      Salario promedio: ${salariopromedio}<br>
+      Total de salarios: ${salariototal}
+
+    `;
+    
 }
-
-function salarioSemanal (salarioMensual) {
-    let salarioSemanal = salarioMensual / 4; // Asumiendo que son 4 semanas por mes
-    console.log("Salario Semanal: " + salarioSemanal);
-}
-
-function salarioDiario (salarioSemanal, diasPorSemana) {
-    let salarioDiario = salarioSemanal / diasPorSemana ;
-    console.log("Salario Diario: " + salarioDiario)
-}
-
-
-
-
-
-
