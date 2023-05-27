@@ -1,4 +1,4 @@
-//let integrantes = prompt("Numero de Integrantes de la Familia")
+let integrantes = prompt("Numero de Integrantes de la Familia")
 let listaDeSalarios = [];
 
 function pedirSalarios() {
