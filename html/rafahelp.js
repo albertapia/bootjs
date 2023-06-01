@@ -1,5 +1,3 @@
-//let integrantes = prompt("Numero de Integrantes de la Familia")
-
 const botonCargarTrabajadores = document.getElementById("botonCargarTrabajadores");
 const resultado = document.getElementById("resultado");
 
@@ -43,6 +41,6 @@ function cargarSalarios () {
 		inputs[i].parentNode.removeChild(inputs[i]);
 	}
 	
-	consola.log(salarios);
+	consola.log(mostrarResultados);
 
 }
