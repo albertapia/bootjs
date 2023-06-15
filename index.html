@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Input y botón con JavaScript</title>
-  </head>
-  <body>
-    <h1>Salarios</h1>
-    <label for="numeroDeTrabajadores">Cantidad de Intregantes Trabajadores</label>
-    <input type="number" id="numeroDeTrabajadores">
-    <button type="button" id="botonCargarTrabajadores">Cargar Trabajadores</button>
-    <div id="resultado"></div>
+<head>
+  <title>Input y botón con JavaScript</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Salarios</h1>
+  <label for="numeroDeTrabajadores">Cantidad de Integrantes Trabajadores</label>
+  <input type="number" id="numeroDeTrabajadores">
+  <button type="button" id="botonCargarTrabajadores">Cargar Trabajadores</button>
 
-    <script src="./main.js"></script>
-  </body>
+  <div id="divInputs" class="hide"></div>
+  <div id="divBotonEscondido" class="hide">
+    <input type="button" value="Cargar salarios" id="botonCargarSalarios">
+  </div>
+
+  <div id="divBotonEscondidoResultado" class="hide">
+    <input type="button" value="Resultados" id="botonResultados">
+  </div>
+
+  <div id="divResultado" class="hide">
+    <p id="maximoSalario"></p>
+    <p id="minimoSalario"></p>
+    <p id="sumaSalario"></p>
+    <p id="promedioSalario"></p>    
+  </div>
+
+  <script src="./main.js"></script>
+</body>
 </html>
