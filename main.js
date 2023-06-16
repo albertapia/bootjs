@@ -1,3 +1,5 @@
+const numeroIntegrantesFamilia = prompt('Cuantos Integrantes son en tu familia');
+
 const botonCargarTrabajadores = document.querySelector('#botonCargarTrabajadores');
 const divResultado = document.querySelector("#divResultado");
 
@@ -53,7 +55,8 @@ function resultados() {
 
   ordenadoMayorMenor();
   sumaTotal();
-  calcularPromedio();
+  calcularPromedioTrabajadores();
+  calcularPromedioFamiliar();
 
   /*
   divResultado.innerHTML = `
@@ -107,7 +110,7 @@ function sumaTotal() {
 
 }
 
-function calcularPromedio() {
+function calcularPromedioTrabajadores() {
   let suma = 0;
 
   for (let i = 0; i < salariosCargados.length; i++) {
@@ -117,6 +120,23 @@ function calcularPromedio() {
   let promedio = suma / salariosCargados.length;
 
   console.log("Promedio de salarios:", promedio);
-  promedioSalario.innerHTML = "Promedio de salarios: " + promedio;
+  promedioSalarioTrabajadores.innerHTML = "Promedio salarios de trabajadores: " + promedio;
+
+}
+
+function calcularPromedioFamiliar() {
+  let sumaFamiliar = 0;
+
+  for (let i = 0; i < salariosCargados.length; i++) {
+    sumaFamiliar += salariosCargados[i];
+  }
+
+  let promedioFamiliar = sumaFamiliar / numeroIntegrantesFamilia;
+
+  console.log("Promedio de salarios Familia:", promedioFamiliar);
+  //promedioSalarioTrabajadores.innerHTML = "Promedio de salarios Familia: " + promedioFamiliar;
+
+  promedioSalarioFamiliar.textContent = `Promedio de salarios Familia: ${promedioFamiliar}`;
+
 
 }
