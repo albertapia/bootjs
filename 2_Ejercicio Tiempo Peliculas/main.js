@@ -3,33 +3,45 @@ const divResultado = document.querySelector('#divResultado');
 const botonSumarTiempo = document.querySelector('#sumarTiempo');
 botonSumarTiempo.onclick = horasMinutosSegundos;
 
+const botonReset = document.querySelector('#botonReset');
+botonReset.onclick = hideResultados;
+
+function hideResultados() {
+  divResultado.classList.add('hide');
+
+  document.getElementById('segundoFinal').innerHTML = '';
+  document.getElementById('minutoFinal').innerHTML = '';
+  document.getElementById('horaFinal').innerHTML = '';
+
+}
+
 function horasMinutosSegundos(){
 
     divResultado.classList.remove('hide');
 
     sumaHoras();
     sumaMinutos();
-    sumaHoras();
+    sumaSegundos();
 
     
 }
 
-function sumaHoras(horaAdicional){
+function sumaHoras(){
 
   let horasTotales = 0;
   let listaHoras = document.querySelectorAll('.horasClase');
 
   for (let i =0; i < listaHoras.length; i++) {
-    horasTotales = horasTotales + listaHoras[i].value;
+    horasTotales += Number(listaHoras[i].value);
    
   }
 
-  horasTotales = horasTotales + horaAdicional;
+  //horasTotales = horasTotales + horaAdicional;
   horaFinal.textContent = `${horasTotales}`;
 
 }
 
-function sumaMinutos(minutoAdicional){
+function sumaMinutos(){
 
   let minutosTotales = 0;
   let horaAdicional = 0;
@@ -37,7 +49,7 @@ function sumaMinutos(minutoAdicional){
 
   for (let i =0; i < listaMinutos.length; i++) {
 
-    minutosTotales = minutosTotales + listaMinutos[i].value;
+    minutosTotales += Number(listaMinutos[i].value);
 
     if (minutosTotales >= 60){
       horaAdicional++;
@@ -46,7 +58,7 @@ function sumaMinutos(minutoAdicional){
     }    
   }
 
-  minutosTotales = minutosTotales + minutoAdicional;
+  //minutosTotales = minutosTotales + minutoAdicional;
   minutoFinal.textContent = `${minutosTotales}`;
  
 }
@@ -59,7 +71,7 @@ function sumaSegundos (){
 
   for (let i =0; i < listaSegundos.length; i++) {
 
-    segundosTotales = segundosTotales + listaSegundos[i].value;
+    segundosTotales += Number(listaSegundos[i].value);
 
     if (segundosTotales >= 60){
       minutoAdicional++;

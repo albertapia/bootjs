@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suma de tiempo de 5 Peliculas</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Peliculas</h1>
+  <form action="">
+
+    <label for="">Tiempo Pelicula 1</label>
+    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
+    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase">
+    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase"><br>
+
+    <label for="">Tiempo Pelicula 2</label>
+    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
+    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase">
+    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase"><br>
+
+    <label for="">Tiempo Pelicula 3</label>
+    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
+    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase" >
+    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase" ><br>
+
+    <label for="">Tiempo Pelicula 4</label>
+    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
+    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase">
+    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase"><br>
+
+    <label for="">Tiempo Pelicula 5</label>
+    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
+    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase">
+    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase"><br>
+
+
+    <button type="button" id="sumarTiempo">Sumar Tiempo</button><input type="reset" id="botonReset">
+  </form>
+  <div id="divResultado" class="hide">
+
+    <h3>Suma Tiempos de Peliculas</h3>
+    <table>
+      <tr>
+        <td><strong>Horas</strong></td>
+        <td><strong>Minutos</strong></td>
+        <td><strong>Segundos</strong></td>
+      </tr>
+      <tr>
+        <td><div id="horaFinal"></div></td>
+        <td><div id="minutoFinal"></div></td>
+        <td><div id="segundoFinal"></div></td>
+      </tr>
+    </table>
+    
+
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
