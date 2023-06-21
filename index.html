@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Input y botón con JavaScript</title>
+  <title>Suma de tiempo de 5 Peliculas</title>
   <link href="main.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Salarios</h1>
-  <label for="numeroDeTrabajadores">Cantidad de Integrantes Trabajadores</label>
-  <input type="number" id="numeroDeTrabajadores">
-  <button type="button" id="botonCargarTrabajadores">Cargar Trabajadores</button>
+  <h1>Peliculas</h1>
 
-  <div id="divInputs" class="hide"></div>
-  <div id="divBotonEscondido" class="hide">
-    <input type="button" value="Cargar salarios" id="botonCargarSalarios">
-  </div>
+  <label for="">Tiempo Pelicula 1</label>
+  <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
+  <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase" required>
+  <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase" required><br>
 
-  <div id="divBotonEscondidoResultado" class="hide">
-    <input type="button" value="Resultados" id="botonResultados">
-  </div>
+  <button type="button" id="sumarTiempo">Sumar Tiempo</button>
 
   <div id="divResultado" class="hide">
-    <p id="maximoSalario"></p>
-    <p id="minimoSalario"></p>
-    <p id="sumaSalario"></p>
-    <p id="promedioSalarioTrabajadores"></p>    
-    <p id="promedioSalarioFamiliar"></p>
+
+    <h3>Suma Tiempos de Peliculas</h3>
+    <table>
+      <tr>
+        <td><strong>Horas</strong></td>
+        <td><strong>Minutos</strong></td>
+        <td><strong>Segundos</strong></td>
+      </tr>
+      <tr>
+        <td><div id="horaFinal"></div></td>
+        <td><div id="minutoFinal"></div></td>
+        <td><div id="segundoFinal"></div></td>
+      </tr>
+    </table>
+    
+
   </div>
 
   <script src="./main.js"></script>
