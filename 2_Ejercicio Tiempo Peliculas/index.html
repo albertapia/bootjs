@@ -9,30 +9,29 @@
   <form action="">
 
     <label for="">Tiempo Pelicula 1</label>
-    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
-    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase">
-    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase"><br>
+    <input type="number" id="horasPelicula-1" class="horasClase">
+    <input type="number" id="minutosPelicula-1" class="minutosClase">
+    <input type="number" id="segundosPelicula-1" class="segundosClase"><br>
 
     <label for="">Tiempo Pelicula 2</label>
-    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
-    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase">
-    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase"><br>
+    <input type="number" id="horasPelicula-2" class="horasClase">
+    <input type="number" id="minutosPelicula-2" class="minutosClase">
+    <input type="number" id="segundosPelicula-2" class="segundosClase"><br>
 
     <label for="">Tiempo Pelicula 3</label>
-    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
-    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase" >
-    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase" ><br>
+    <input type="number" id="horasPelicula-3" class="horasClase">
+    <input type="number" id="minutosPelicula-3" class="minutosClase">
+    <input type="number" id="segundosPelicula-3" class="segundosClase"><br>
 
     <label for="">Tiempo Pelicula 4</label>
-    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
-    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase">
-    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase"><br>
+    <input type="number" id="horasPelicula-4" class="horasClase">
+    <input type="number" id="minutosPelicula-4" class="minutosClase">
+    <input type="number" id="segundosPelicula-4" class="segundosClase"><br>
 
-    <label for="">Tiempo Pelicula 5</label>
-    <input type="number" id="horasPelicula" placeholder="Horas" class="horasClase">
-    <input type="number" id="minutosPelicula" max="59" min="00" placeholder="Minutos" class="minutosClase">
-    <input type="number" id="segundosPelicula" max="59" min="00" placeholder="Segundos" class="segundosClase"><br>
-
+    <label for="">Tiempo Pelicula 1</label>
+    <input type="number" id="horasPelicula-5" class="horasClase">
+    <input type="number" id="minutosPelicula-5" class="minutosClase">
+    <input type="number" id="segundosPelicula-5" class="segundosClase"><br>
 
     <button type="button" id="sumarTiempo">Sumar Tiempo</button><input type="reset" id="botonReset">
   </form>
@@ -49,12 +48,13 @@
         <td><div id="horaFinal"></div></td>
         <td><div id="minutoFinal"></div></td>
         <td><div id="segundoFinal"></div></td>
-      </tr>
+      
+      <div id="mensajeError"></div>
     </table>
     
 
   </div>
 
-  <script src="./main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

@@ -1,84 +1,87 @@
-const divResultado = document.querySelector('#divResultado');
+const botonSumarTiempo = document.querySelector('#sumarTiempo')
+botonSumarTiempo.onclick = sumaTiempoTotal;
 
-const botonSumarTiempo = document.querySelector('#sumarTiempo');
-botonSumarTiempo.onclick = horasMinutosSegundos;
-
-const botonReset = document.querySelector('#botonReset');
+const botonReset = document.querySelector('#botonReset')
 botonReset.onclick = hideResultados;
 
-function hideResultados() {
-  divResultado.classList.add('hide');
+const divResultado = document.querySelector('#divResultado')
 
-  document.getElementById('segundoFinal').innerHTML = '';
-  document.getElementById('minutoFinal').innerHTML = '';
-  document.getElementById('horaFinal').innerHTML = '';
-
+function hideResultados (){
+    divResultado.classList.add('hide');
+    document.getElementById('segundoFinal').innerHTML = '';
+    document.getElementById('minutoFinal').innerHTML = '';
+    document.getElementById('horaFinal').innerHTML = '';
 }
 
-function horasMinutosSegundos(){
+function sumaTiempoTotal(){
+  let minutoAdicional;
+  let horaAdicional;
 
     divResultado.classList.remove('hide');
-
-    sumaHoras();
-    sumaMinutos();
-    sumaSegundos();
-
-    
+    minutoAdicional = sumaSegundos();
+    horaAdicional = sumaMinutos(minutoAdicional);
+    sumaHoras(horaAdicional);
 }
 
-function sumaHoras(){
+const cajaSegundoFinal = document.querySelector('#segundoFinal');
+const cajaMensajeError = document.querySelector('#mensajeError');
 
-  let horasTotales = 0;
-  let listaHoras = document.querySelectorAll('.horasClase');
-
-  for (let i =0; i < listaHoras.length; i++) {
-    horasTotales += Number(listaHoras[i].value);
-   
-  }
-
-  //horasTotales = horasTotales + horaAdicional;
-  horaFinal.textContent = `${horasTotales}`;
-
+function sumaSegundos() {
+    let segundosTotales = 0;
+    let minutoAdicional = 0;
+    let listaSegundos = document.querySelectorAll('.segundosClase');
+  
+      for (let i = 0; i < listaSegundos.length; i++) {
+        let segundos = Number(listaSegundos[i].value);  
+        if (segundos >= 0 && segundos <= 59) {
+          segundosTotales += segundos;  
+            if (segundosTotales >= 60) {
+              minutoAdicional++;
+            segundosTotales = segundosTotales - 60;
+            }          
+        } else {
+          cajaMensajeError.textContent = `Ingresar segundos válidos (entre 0 y 59)`;          
+        }
+      }  
+      cajaSegundoFinal.textContent = segundosTotales;
+      return minutoAdicional;
 }
 
-function sumaMinutos(){
+const cajaMinutoFinal = document.querySelector('#minutoFinal');
 
-  let minutosTotales = 0;
+function sumaMinutos(minutoAdicional){
+  let minutosTotales = minutoAdicional;
   let horaAdicional = 0;
   let listaMinutos = document.querySelectorAll('.minutosClase');
 
-  for (let i =0; i < listaMinutos.length; i++) {
+    for (let i = 0; i < listaMinutos.length; i++) {
+      let minutos = Number(listaMinutos[i].value);  
+      if (minutos >= 0 && minutos <= 59) {
+        minutosTotales += minutos;  
+          if (minutosTotales >= 60) {
+            horaAdicional++;
+            minutosTotales = minutosTotales - 60;
+          }          
+      } else {
+        cajaMensajeError.textContent = `Ingresar minutos válidos (entre 0 y 59)`;          
+      }
+    }  
+    cajaMinutoFinal.textContent = minutosTotales;
+    return horaAdicional;
 
-    minutosTotales += Number(listaMinutos[i].value);
-
-    if (minutosTotales >= 60){
-      horaAdicional++;
-      minutosTotales = minutosTotales - 60;
-
-    }    
-  }
-
-  //minutosTotales = minutosTotales + minutoAdicional;
-  minutoFinal.textContent = `${minutosTotales}`;
- 
 }
 
-function sumaSegundos (){
+const cajaHoraFinal = document.querySelector('#horaFinal');
 
-  let segundosTotales = 0;
-  let minutoAdicional = 0;
-  let listaSegundos = document.querySelectorAll('.segundosClase');
-
-  for (let i =0; i < listaSegundos.length; i++) {
-
-    segundosTotales += Number(listaSegundos[i].value);
-
-    if (segundosTotales >= 60){
-      minutoAdicional++;
-      segundosTotales = segundosTotales - 60;
-    }    
+function sumaHoras(horaAdicional) {
+    let horasTotales = horaAdicional;
+    let listaHoras = document.querySelectorAll('.horasClase');
+  
+    for (let i = 0; i < listaHoras.length; i++) {
+      let horas = Number(listaHoras[i].value);
+      horasTotales += horas;
+    }
+  
+    cajaHoraFinal.textContent = horasTotales;
+    
   }
-
-segundoFinal.textContent = `${segundosTotales}`;
-
-} 
