@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+}
+
+.color {
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+
+}
+
+.rojo {
+    background-color: red;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+.verde {
+    background-color: green;
+}
+
+.azul {
+    background-color: blue;
+}
