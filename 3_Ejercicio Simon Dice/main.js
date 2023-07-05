@@ -32,28 +32,28 @@ function iniciandoElJuego() {
 
 function botonRojo() {
     if (juegoIniciado=true) {
-        secuenciaJugador.push(0);
+        secuenciaDelJugador.push(0);
         verificarSecuencia();
       }
 }
 
 function botonAmarillo() {
     if (juegoIniciado=true) {
-        secuenciaJugador.push(1);
+        secuenciaDelJugador.push(1);
         verificarSecuencia();
       }
 }
 
 function botonVerde() {
     if (juegoIniciado=true) {
-        secuenciaJugador.push(2);
+        secuenciaDelJugador.push(2);
         verificarSecuencia();
       }
 }
 
 function botonAzul() {
     if (juegoIniciado=true) {
-        secuenciaJugador.push(3);
+        secuenciaDelJugador.push(3);
         verificarSecuencia();
       }
 }
@@ -70,39 +70,61 @@ function siguienteSecuencia() {
     let botonRandom = Math.floor(Math.random()*4);
     secuenciaDelJuego.push(botonRandom);
 
-    mostrarSecuencia();
+    mostrarSecuencia(secuenciaDelJuego);
 
     puntajeTotal++;
     puntajeMaximo++;
 }
 
 
-function mostrarSecuencia(){}
-
-/*
-function iluminarBoton(){
-    //Aca se usan muchjos if ver si se pueden usar case pero seguramente if mas ifelse revisar eso
-}
-
-function validarSecuencia (){
-    //aca se compara las dos secuencias bah los dos array si son iguales se continua llamando a siguienteSecuencia o al nombre que le haya puesto
-    if (secuenciaJugador)
-
-
-    if (secuenciaJugador[secuenciaJugador.length - 1] !== sequence[playerSequence.length - 1]) {
-        gameOver();
-        return;
+function mostrarSecuencia() {
+    let i = 0;
+    let intervalo = setInterval(function() {
+      resaltarBoton(secuenciaDelJuego[i]);
+      i++;
+      if (i >= secuenciaDelJuego.length) {
+        clearInterval(intervalo);
       }
-    
-      if (secuenciaJugador.length === secuenciaJuego.length) {
-        playerSequence = [];
+    }, 1000);
+  }
+
+  function resaltarBoton(boton) {
+    switch (boton) {
+      case 0:
+        $botonVerde.classList.add("active");
         setTimeout(function() {
-          nextSequence();
-        }, 1000);
-}
+          $botonVerde.classList.remove("active");
+        }, 500);
+        break;
+      case 1:
+        $botonRojo.classList.add("active");
+        setTimeout(function() {
+          $botonRojo.classList.remove("active");
+        }, 500);
+        break;
+      case 2:
+        $botonAmarillo.classList.add("active");
+        setTimeout(function() {
+          $botonAmarillo.classList.remove("active");
+        }, 500);
+        break;
+      case 3:
+        $botonAzul.classList.add("active");
+        setTimeout(function() {
+          $botonAzul.classList.remove("active");
+        }, 500);
+        break;
+    }
+  }
 
-function gameOver() {
-    //aca se pone el tru del juego inicoado a false para que termine se muestra en el documento algo que diga se perdio
-}
+  function verificarSecuencia () {
 
-/* Ver donde poner el classlist.add y remove hide para iluminar el boton e investigar si se puede hacer con un relee*/
+  }
+
+  function finDelJuego () {
+    // agergar los respectivos inerhtml o contenttex para mostar el puntaje maximo y que este quede si continua jugando y ver si el reinicio que el puntaje total se reinicie en 0 este donde corresponda
+    juegoIniciado = false;
+  }
+  
+
+ 
