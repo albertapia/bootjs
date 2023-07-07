@@ -3,11 +3,9 @@ const $botonRojo = document.querySelector('#rojo');
 const $botonAmarillo = document.querySelector('#amarillo');
 const $botonVerde = document.querySelector('#verde');
 const $botonAzul = document.querySelector('#azul');
-//const cantidadDeBotonesDeColor = document.querySelectorAll('botonCaja');
 
 let secuenciaDelJuego = []; /*  En este array tengo que pushear el patron cuando se vaya avanzando en el juego*/
 let secuenciaDelJugador = []; /*  En este array tengo que pushear el patron cuando el jugador vaya avanzando en el juego para comparar con el otro array*/
-//let puntajeTotal = 0; probando donde iniciar estas dos variables en 0
 let puntajeMaximo = 0; 
 let juegoIniciado = false;
 
@@ -20,8 +18,9 @@ $botonVerde.onclick = botonVerde;
 $botonAzul.onclick = botonAzul;
 
 function iniciandoElJuego() {
-    if (juegoIniciado = false) {
-        juegoIniciado = true;
+  console.log("Test Iniciando");
+    if (juegoIniciado === false) {
+        juegoIniciado === true;
         iniciarJuego();
       }
     }
@@ -118,13 +117,43 @@ function mostrarSecuencia() {
   }
 
   function verificarSecuencia () {
+    if (secuenciaDelJugador[secuenciaDelJugador.length - 1] !== secuenciaDelJuego[secuenciaJugador.length - 1]) {
+      finDelJuego();
+      return;
+    }
+  
+    if (secuenciaDelJugador.length === secuenciaDelJuego.length) {
+      secuenciaDelJugador = [];
+      setTimeout(siguienteSecuencia, 1000);
+    }
 
   }
 
   function finDelJuego () {
     // agergar los respectivos inerhtml o contenttex para mostar el puntaje maximo y que este quede si continua jugando y ver si el reinicio que el puntaje total se reinicie en 0 este donde corresponda
+
+  cajaScore.classList.remove('hide');
+  cajaScoreMaximo.classList.remove('hide');
+  
+
+    puntajeFinDelJuego();
+    maximoPuntaje();
+
     juegoIniciado = false;
   }
   
+  function maximoPuntaje (){
+    if (puntajeTotal > puntajeMaximo) {
+      puntajeMaximo = puntajeTotal;
+    }
+    puntajeMaximo.textContent = `Puntaje Maximo: ${puntajeTotal}`;
+
+
+  }
+
+  function puntajeFinDelJuego () {
+    puntajeJuegoActual.textContent = `Puntaje: ${puntajeTotal}`;
+
+  }
 
  
