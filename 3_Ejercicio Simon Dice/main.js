@@ -1,4 +1,4 @@
-const $botonStar = document.querySelector('#botonStart');
+const $botonStar = document.querySelector('.botonStart');
 const $botonRojo = document.querySelector('#rojo');
 const $botonAmarillo = document.querySelector('#amarillo');
 const $botonVerde = document.querySelector('#verde');
@@ -8,8 +8,6 @@ let secuenciaDelJuego = []; /*  En este array tengo que pushear el patron cuando
 let secuenciaDelJugador = []; /*  En este array tengo que pushear el patron cuando el jugador vaya avanzando en el juego para comparar con el otro array*/
 let puntajeMaximo = 0; 
 let juegoIniciado = false;
-
-const colores = ["rojo", "amarillo", "verde", "azul"];
 
 $botonStar.onclick = iniciandoElJuego;
 $botonRojo.onclick = botonRojo;
