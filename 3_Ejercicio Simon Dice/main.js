@@ -4,7 +4,15 @@ const $botonAmarillo = document.querySelector('#amarillo');
 const $botonVerde = document.querySelector('#verde');
 const $botonAzul = document.querySelector('#azul');
 
-let secuenciaDelJuego = []; /*  En este array tengo que pushear el patron cuando se vaya avanzando en el juego*/
+/*cuando cambie a clases revisar tomar de referencia haer las correcicones etc
+
+ let cuadrado = document.querySelector('#cajaBotones')
+undefined
+cuadrado.addEventListener('click', ()=> {
+    console.log("Hago click")
+}) */
+
+const secuenciaDelJuego = []; /*  En este array tengo que pushear el patron cuando se vaya avanzando en el juego*/
 let secuenciaDelJugador = []; /*  En este array tengo que pushear el patron cuando el jugador vaya avanzando en el juego para comparar con el otro array*/
 let puntajeMaximo = 0; 
 let juegoIniciado = false;
@@ -16,52 +24,48 @@ $botonVerde.onclick = botonVerde;
 $botonAzul.onclick = botonAzul;
 
 function iniciandoElJuego() {
-  console.log("Test Iniciando");
-    if (juegoIniciado === false) {
+  // console.log("Test Iniciando"); 
+      if (juegoIniciado === false) {
         juegoIniciado === true;
         iniciarJuego();
       }
     }
-/*function botonRandom (){
- let randomBoton = Math.floor(Math.random() * cantidadDeBotonesDeColor.length);
- return  [randomBoton];
-}*/ // Prueba Fallo dejo el codigo comentado como nota de momento.
 
 function botonRojo() {
-    if (juegoIniciado=true) {
+      if (juegoIniciado===true) {
         secuenciaDelJugador.push(0);
         verificarSecuencia();
       }
 }
 
 function botonAmarillo() {
-    if (juegoIniciado=true) {
-        secuenciaDelJugador.push(1);
+  if (juegoIniciado===true) {
+    secuenciaDelJugador.push(1);
         verificarSecuencia();
       }
 }
 
 function botonVerde() {
-    if (juegoIniciado=true) {
-        secuenciaDelJugador.push(2);
+      if (juegoIniciado===true) {
+    secuenciaDelJugador.push(2);
         verificarSecuencia();
       }
 }
 
 function botonAzul() {
-    if (juegoIniciado=true) {
-        secuenciaDelJugador.push(3);
+      if (juegoIniciado===true) {
+    secuenciaDelJugador.push(3);
         verificarSecuencia();
       }
 }
 
 function iniciarJuego () {
     let puntajeTotal = 0;
-    // let puntajeMaximo = 0; /* Se comento por que el puntaje maximo no se tiene que inicializar en 0 nuevamente cada vez que se inicia el juego creo
-    secuenciaDelJuego = []; 
-    secuenciaDelJugador = [];
     siguienteSecuencia();
+    return puntajeTotal; // tenog que declarar a donde va en medio de las llamadas de las funciones del boton star creo
 }
+
+// ver donde se pone secuencia jugador que se reinicia en cada ronda para comparar si el jugador hio bien
 
 function siguienteSecuencia() {
     let botonRandom = Math.floor(Math.random()*4);
@@ -115,7 +119,7 @@ function mostrarSecuencia() {
   }
 
   function verificarSecuencia () {
-    if (secuenciaDelJugador[secuenciaDelJugador.length - 1] !== secuenciaDelJuego[secuenciaJugador.length - 1]) {
+    if (secuenciaDelJugador[secuenciaDelJugador.length - 1] != secuenciaDelJuego[secuenciaJugador.length - 1]) {
       finDelJuego();
       return;
     }

@@ -47,3 +47,13 @@ button:active { /* Si no funciona bien probar esta accion del boton definiendola
 #azul {
     background-color: blue;
 }
+
+.boton {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+   
