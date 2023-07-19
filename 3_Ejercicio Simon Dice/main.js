@@ -27,7 +27,7 @@ function empezarJuego() {
 function agregarNuevoColor() {
   const nuevoColor = obtenerColorAleatorio();
   secuenciaDelJuego.push(nuevoColor);
-  ejecutarSecuencia(secuenciaDelJuego);
+  mostrarSecuencia(secuenciaDelJuego);
 }
 
 function obtenerColorAleatorio() {
@@ -36,69 +36,29 @@ function obtenerColorAleatorio() {
   return coloresDisponibles[color];
 }
 
-function ejecutarSecuencia(secuenciaDelJuego) {
-
+function mostrarSecuencia() {
+  let i = 0;
+  const intervalo = setInterval(() => {
+    const color = secuencia[i];
+    iluminarColor(color);
+    i++;
+    if (i >= secuencia.length) {
+      clearInterval(intervalo);
+      permitirJugada();
+    }
+  }, 1000);
 }
 
+
+
 function iluminarColor(color) {
-  const $botonIluminado = document.getElementById(color);
+  const $botonIluminado = document.getElementById(color); 
   $botonIluminado.classList.add('iluminado');
 
   setTimeout(() => {
     $botonIluminado.classList.remove('iluminado');
   }, 500); 
 }
-
-function siguienteSecuencia() {
-    let botonRandom = Math.floor(Math.random()*4);
-    secuenciaDelJuego.push(botonRandom);
-
-    mostrarSecuencia(secuenciaDelJuego);
-
-    puntajeTotal++;
-    puntajeMaximo++;
-}
-
-
-function mostrarSecuencia() {
-    let i = 0;
-    let intervalo = setInterval(function() {
-      resaltarBoton(secuenciaDelJuego[i]);
-      i++;
-      if (i >= secuenciaDelJuego.length) {
-        clearInterval(intervalo);
-      }
-    }, 1000);
-  }
-
-  function resaltarBoton(boton) {
-    switch (boton) {
-      case 0:
-        $botonVerde.classList.add("active");
-        setTimeout(function() {
-          $botonVerde.classList.remove("active");
-        }, 500);
-        break;
-      case 1:
-        $botonRojo.classList.add("active");
-        setTimeout(function() {
-          $botonRojo.classList.remove("active");
-        }, 500);
-        break;
-      case 2:
-        $botonAmarillo.classList.add("active");
-        setTimeout(function() {
-          $botonAmarillo.classList.remove("active");
-        }, 500);
-        break;
-      case 3:
-        $botonAzul.classList.add("active");
-        setTimeout(function() {
-          $botonAzul.classList.remove("active");
-        }, 500);
-        break;
-    }
-  }
 
   function verificarSecuencia () {
     if (secuenciaDelJugador[secuenciaDelJugador.length - 1] != secuenciaDelJuego[secuenciaJugador.length - 1]) {
