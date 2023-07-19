@@ -1,71 +1,53 @@
-const $botonStar = document.querySelector('.botonStart');
-const $botonRojo = document.querySelector('#rojo');
-const $botonAmarillo = document.querySelector('#amarillo');
-const $botonVerde = document.querySelector('#verde');
-const $botonAzul = document.querySelector('#azul');
+const $botones = document.querySelectorAll('.botonCaja');
+const $botonEmpezar = document.querySelector('.botonStart');
+const $cajaScore = document.getElementById('cajaScore');
+const $cajaScoreMaximo = document.getElementById('cajaScoreMaximo');
+let secuenciaDelJuego = []; // secuencia del juego ...MAKINA
+let secuenciaDelJugador = []; // secuencia del HUMANO
+let puntajeJuegoActual = 0; // Puntaje del juego actual
+let puntajeMaximo = 0; // RECORDDD!!
 
-/*cuando cambie a clases revisar tomar de referencia haer las correcicones etc
+$botonEmpezar.addEventListener('click', empezarJuego);
+// $botonEmpezar.onclick = empezarJuego;
 
- let cuadrado = document.querySelector('#cajaBotones')
-undefined
-cuadrado.addEventListener('click', ()=> {
+/*
+botones.addEventListener('click', empezarJuego);
+$cuadradoBotones.addEventListener('click', ()=> {
     console.log("Hago click")
-}) */
+})*/
 
-const secuenciaDelJuego = []; /*  En este array tengo que pushear el patron cuando se vaya avanzando en el juego*/
-let secuenciaDelJugador = []; /*  En este array tengo que pushear el patron cuando el jugador vaya avanzando en el juego para comparar con el otro array*/
-let puntajeMaximo = 0; 
-let juegoIniciado = false;
-
-$botonStar.onclick = iniciandoElJuego;
-$botonRojo.onclick = botonRojo;
-$botonAmarillo.onclick = botonAmarillo;
-$botonVerde.onclick = botonVerde;
-$botonAzul.onclick = botonAzul;
-
-function iniciandoElJuego() {
-  // console.log("Test Iniciando"); 
-      if (juegoIniciado === false) {
-        juegoIniciado === true;
-        iniciarJuego();
-      }
-    }
-
-function botonRojo() {
-      if (juegoIniciado===true) {
-        secuenciaDelJugador.push(0);
-        verificarSecuencia();
-      }
+function empezarJuego() {
+  $botonEmpezar.disabled = true; // para desabilitar el boton una vez iniciado
+  secuenciaDelJuego = []; 
+  puntajeJuegoActual = 0; 
+  secuenciaDelJugador = [];
+  agregarNuevoColor();
 }
 
-function botonAmarillo() {
-  if (juegoIniciado===true) {
-    secuenciaDelJugador.push(1);
-        verificarSecuencia();
-      }
+function agregarNuevoColor() {
+  const nuevoColor = obtenerColorAleatorio();
+  secuenciaDelJuego.push(nuevoColor);
+  ejecutarSecuencia(secuenciaDelJuego);
 }
 
-function botonVerde() {
-      if (juegoIniciado===true) {
-    secuenciaDelJugador.push(2);
-        verificarSecuencia();
-      }
+function obtenerColorAleatorio() {
+  const coloresDisponibles = ['rojo', 'verde', 'azul', 'amarillo'];
+  const color = Math.floor(Math.random() * coloresDisponibles.length);
+  return coloresDisponibles[color];
 }
 
-function botonAzul() {
-      if (juegoIniciado===true) {
-    secuenciaDelJugador.push(3);
-        verificarSecuencia();
-      }
+function ejecutarSecuencia(secuenciaDelJuego) {
+
 }
 
-function iniciarJuego () {
-    let puntajeTotal = 0;
-    siguienteSecuencia();
-    return puntajeTotal; // tenog que declarar a donde va en medio de las llamadas de las funciones del boton star creo
-}
+function iluminarColor(color) {
+  const $botonIluminado = document.getElementById(color);
+  $botonIluminado.classList.add('iluminado');
 
-// ver donde se pone secuencia jugador que se reinicia en cada ronda para comparar si el jugador hio bien
+  setTimeout(() => {
+    $botonIluminado.classList.remove('iluminado');
+  }, 500); 
+}
 
 function siguienteSecuencia() {
     let botonRandom = Math.floor(Math.random()*4);
