@@ -12,10 +12,27 @@ body {
     width: 80px;
     height: 45px;
     border-radius: 80px;
-    border-color: black;
-    border-width: 3px;
+    border: 2px solid black;
     padding: 0px 20px;
     cursor: pointer;
+}
+
+.cajaUser {
+    width: 90px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 15px;
+    border: 3px solid black; 
+    text-align: center;
+    padding: 0 15px;
+}
+
+#ia{
+    background-color: blueviolet;
+}
+
+#human{
+    background-color: blueviolet;
 }
 
 .botonCaja {
@@ -23,8 +40,7 @@ body {
     height: 100px;
     margin: 5px;
     border-radius: 20px;
-    border-color: black;
-    border-width: 8px;
+    border: 3px solid black;
     cursor: pointer;
 }
 
@@ -51,6 +67,3 @@ body {
 #azul {
     background-color: blue;
 }
-
-  
-   
