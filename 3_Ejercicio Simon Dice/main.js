@@ -39,25 +39,10 @@ function empezarJuego() {
 function turnoCpu(){
   $botones.disabled = true;
   $cajaHuman.classList.remove('iluminado');
-  $cajaIa.classList.add('iluminado');
+  $cajaCpu.classList.add('iluminado');
   obtenerColorAleatorio();
   agregarNuevoColor();
   mostrarSecuencia();
-}
-
-function turnoHumano(){
-  $botones.disabled = false;
-  $cajaIa.classList.remove('iluminado');
-  $cajaHuman.classList.add('iluminado');
-  let secuenciaDelJugador = [];
-  secuenciaDelJugador = $botones
-
-  //averiguar como poner cierta cantidad de segfundos o milisegundos para que aprete las cosas
-
-}
-
-function turnoLogica(){
-  verificarSecuencia ()
 }
 
 function agregarNuevoColor(nuevoColor) {
@@ -83,6 +68,24 @@ function mostrarSecuencia() {
   }, secuenciaDelJuego.length * 1000);
 }
 
+function turnoHumano() {
+  $botones.disabled = false;
+  $cajaCpu.classList.remove('iluminado');
+  $cajaHuman.classList.add('iluminado');
+  $botones.forEach(boton => {
+      boton.addEventListener('click', function () {
+          const colorSeleccionado = boton.id;
+          secuenciaDelJugador.push(colorSeleccionado);
+          verificarSecuencia();
+      });
+  });
+}
+
+
+function turnoLogica(){
+  verificarSecuencia ()
+}
+
 function iluminarColor(color) {
   const $botonIluminado = document.getElementById(color); 
   $botonIluminado.classList.add('iluminado');
@@ -96,11 +99,11 @@ function permitirJugada() {
   // Aca tendria qeu poner algo que permita que el jugador ingrese su secuencia creo
 }
 
-function verificarSecuencia () {
-  if (secuenciaDelJugador[secuenciaDelJugador.length - 1] != secuenciaDelJuego[secuenciaJugador.length - 1]) {
-    finDelJuego();
-    return;
-  }
+function verificarSecuencia() {
+  if (secuenciaDelJugador[secuenciaDelJugador.length - 1] != secuenciaDelJuego[secuenciaDelJugador.length - 1]) { // Cambiar secuenciaJugador a secuenciaDelJugador
+      finDelJuego();
+      return;
+   }
   
   if (secuenciaDelJugador.length === secuenciaDelJuego.length) {
     secuenciaDelJugador = [];
