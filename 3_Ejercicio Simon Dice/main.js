@@ -1,3 +1,11 @@
+// $botonEmpezar.onclick = empezarJuego;
+
+/*
+botones.addEventListener('click', empezarJuego);
+$cuadradoBotones.addEventListener('click', ()=> {
+    console.log("Hago click")
+})*/
+
 const $botones = document.querySelectorAll('.botonCaja');
 const $botonEmpezar = document.querySelector('.botonStart');
 const $cajaScore = document.getElementById('cajaScore');
@@ -11,22 +19,11 @@ let puntajeJuegoActual = 0; // Puntaje del juego actual
 let puntajeMaximo = 0; // RECORDDD!!
 
 $botonEmpezar.addEventListener('click', empezarJuego);
-// $botonEmpezar.onclick = empezarJuego;
-
-/*
-botones.addEventListener('click', empezarJuego);
-$cuadradoBotones.addEventListener('click', ()=> {
-    console.log("Hago click")
-})*/
 
 function juego () {
   empezarJuego();
   turnoCpu();
   turnoHumano();
-  turnoLogica();
-
-  iluminarColor(); //ver donde meterlo
-
 }
 
 function empezarJuego() {
@@ -72,18 +69,6 @@ function turnoHumano() {
   $botones.disabled = false;
   $cajaCpu.classList.remove('iluminado');
   $cajaHuman.classList.add('iluminado');
-  $botones.forEach(boton => {
-      boton.addEventListener('click', function () {
-          const colorSeleccionado = boton.id;
-          secuenciaDelJugador.push(colorSeleccionado);
-          verificarSecuencia();
-      });
-  });
-}
-
-
-function turnoLogica(){
-  verificarSecuencia ()
 }
 
 function iluminarColor(color) {
@@ -96,7 +81,14 @@ function iluminarColor(color) {
 }
 
 function permitirJugada() {
-  // Aca tendria qeu poner algo que permita que el jugador ingrese su secuencia creo
+  $botones.forEach(boton => {
+    boton.addEventListener('click', function () {
+        const colorSeleccionado = boton.id;
+        secuenciaDelJugador.push(colorSeleccionado);
+        verificarSecuencia();
+    });
+});
+
 }
 
 function verificarSecuencia() {
